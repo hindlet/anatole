@@ -62,6 +62,15 @@
     />
   {{ end }}
 
+  {{ $videoStyle := resources.Get "css/video.css" | resources.Minify | resources.Fingerprint }}
+  <link
+    rel="stylesheet"
+    href="{{ $videoStyle.RelPermalink }}"
+    integrity="{{ $videoStyle.Data.Integrity }}"
+    crossorigin="anonymous"
+    type="text/css"
+  />
+
   {{ $markupHighlightStyle := resources.Get "css/markupHighlight.css" | resources.Minify | resources.Fingerprint }}
   <link
     rel="stylesheet"
